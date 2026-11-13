@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var rawInput: EditText
     private var bitmap: Bitmap? = null
     private var pendingPhotoFile: File? = null
+    private var cardBitmap: Bitmap? = null
 
     private val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         if (uri != null) try {
