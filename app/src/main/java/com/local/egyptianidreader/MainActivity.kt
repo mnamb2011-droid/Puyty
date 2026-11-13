@@ -15,6 +15,9 @@ import com.googlecode.tesseract.android.TessBaseAPI
 import java.io.File
 import java.io.FileOutputStream
 import kotlin.math.max
+import androidx.exifinterface.media.ExifInterface
+import android.graphics.Matrix
+import android.app.AlertDialog
 
 class MainActivity : ComponentActivity() {
     private lateinit var status: TextView
