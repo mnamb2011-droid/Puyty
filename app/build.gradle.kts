@@ -23,4 +23,5 @@ dependencies {
     implementation("cz.adaptech.tesseract4android:tesseract4android:4.9.0")
     implementation("androidx.core:core-ktx:1.17.0")
     implementation("androidx.activity:activity-ktx:1.11.0")
+    implementation("androidx.exifinterface:exifinterface:1.4.1")
 }
