@@ -744,16 +744,67 @@ class MainActivity : ComponentActivity() {
             .trim()
     }
 
+    
     private fun copyAsset(
         path: String,
         destination: File
     ) {
-
-        if (
-            destination.exists() &&
-            destination.length() > 1000
-        ) {
+        if (destination.exists() && destination.length() > 1000) {
             return
         }
 
-        assets.open(path).use 
+        assets.open(path).use { input ->
+            FileOutputStream(destination).use { output ->
+                input.copyTo(output)
+            }
+        }
+    }
+
+    private fun normalizeDigits(value: String): String {
+        val ar = "٠١٢٣٤٥٦٧٨٩"
+        val fa = "۰۱۲۳۴۵۶۷۸۹"
+
+        return value.map { c ->
+            when {
+                c in ar -> ('0'.code + ar.indexOf(c)).toChar()
+                c in fa -> ('0'.code + fa.indexOf(c)).toChar()
+                else -> c
+            }
+        }.joinToString("")
+    }
+
+    private fun saveRecord() {
+        val id = normalizeDigits(
+            idInput.text.toString()
+        ).filter { it.isDigit() }
+
+        if (id.isNotEmpty() && id.length != 14) {
+            status.text = "الرقم القومي يجب أن يتكون من 14 رقمًا."
+            return
+        }
+
+        val prefs = getSharedPreferences("records", MODE_PRIVATE)
+        val n = prefs.getInt("count", 0) + 1
+
+        val value = listOf(
+            nameInput.text.toString(),
+            id,
+            addressInput.text.toString(),
+            rawInput.text.toString()
+        ).joinToString("\n")
+
+        prefs.edit()
+            .putInt("count", n)
+            .putString("record_$n", value)
+            .apply()
+
+        status.text = "تم الحفظ محليًا على الهاتف."
+    }
+
+    override fun onDestroy() {
+        if (cardBitmap != null && cardBitmap !== bitmap) {
+            cardBitmap?.recycle()
+        }
+        super.onDestroy()
+    }
+}
