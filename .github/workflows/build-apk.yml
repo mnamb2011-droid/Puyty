@@ -25,11 +25,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Install Gradle 8.13.2
+      - name: Install Gradle 8.13
         run: |
-          curl -fL https://services.gradle.org/distributions/gradle-8.13.2-bin.zip -o gradle.zip
-          unzip -q gradle.zip -d "$RUNNER_TEMP"
-          echo "$RUNNER_TEMP/gradle-8.13.2/bin" >> "$GITHUB_PATH"
+          curl -fL https://services.gradle.org/distributions/gradle-8.13-bin.zip -o gradle.zip
+            unzip -q gradle.zip -d "$RUNNER_TEMP"
+            echo "$RUNNER_TEMP/gradle-8.13/bin" >> "$GITHUB_PATH"
 
       - name: Download OCR language data
         run: |
