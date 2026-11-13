@@ -22,4 +22,4 @@ files:
 notes:
   - All files in this ZIP are stored at one level; no nested directories exist.
   - GitHub Actions requires the workflow to be created at .github/workflows/build-apk.yml.
-  - Paste the contents of DOTgithub__workflows__build-apk.yml into that GitHub path.
+  - Paste the contents of DOTgithub__workflows__build-apk.yml into that GitHub path
