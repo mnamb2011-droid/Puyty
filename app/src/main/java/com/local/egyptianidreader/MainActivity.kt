@@ -108,7 +108,7 @@ class MainActivity : ComponentActivity() {
                 if (!api.init(base.absolutePath, "ara+eng")) throw IllegalStateException("تعذر تشغيل بيانات اللغة")
                 api.setPageSegMode(TessBaseAPI.PageSegMode.PSM_AUTO)
                 api.setImage(source)
-                val result = api.UTF8Text ?: ""
+                val result = api.getUTF8Text() ?: ""
                 runOnUiThread {
                     rawInput.setText(result.trim())
                     val id = Regex("(?<![0-9])[0-9]{14}(?![0-9])").find(normalizeDigits(result))?.value
