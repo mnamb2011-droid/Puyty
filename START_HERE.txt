@@ -1,0 +1,3 @@
+هذه النسخة تحتوي جميع ملفات المشروع الفعلية بشكل مسطح.
+راجع PROJECT_LAYOUT.yml لمعرفة المسار الأصلي لكل ملف.
+ملف DOTgithub__workflows__build-apk.yml يجب نسخه إلى .github/workflows/build-apk.yml داخل GitHub حتى يعمل Actions.

@@ -1,0 +1,25 @@
+project: EgyptianIDReader
+package_type: flat_files
+files:
+  - file: "settings.gradle.kts"
+    restore_to: "settings.gradle.kts"
+  - file: "build.gradle.kts"
+    restore_to: "build.gradle.kts"
+  - file: "gradle.properties"
+    restore_to: "gradle.properties"
+  - file: "gradle__wrapper__gradle-wrapper.properties"
+    restore_to: "gradle/wrapper/gradle-wrapper.properties"
+  - file: "app__build.gradle.kts"
+    restore_to: "app/build.gradle.kts"
+  - file: "app__src__main__AndroidManifest.xml"
+    restore_to: "app/src/main/AndroidManifest.xml"
+  - file: "app__src__main__java__com__local__egyptianidreader__MainActivity.kt"
+    restore_to: "app/src/main/java/com/local/egyptianidreader/MainActivity.kt"
+  - file: "README.md"
+    restore_to: "README.md"
+  - file: "DOTgithub__workflows__build-apk.yml"
+    restore_to: ".github/workflows/build-apk.yml"
+notes:
+  - All files in this ZIP are stored at one level; no nested directories exist.
+  - GitHub Actions requires the workflow to be created at .github/workflows/build-apk.yml.
+  - Paste the contents of DOTgithub__workflows__build-apk.yml into that GitHub path.
