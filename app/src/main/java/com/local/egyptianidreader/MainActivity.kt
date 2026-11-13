@@ -1,6 +1,6 @@
 package com.local.egyptianidreader
 
-import android.app.Activity
+import androidx.activity.ComponentActivity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
